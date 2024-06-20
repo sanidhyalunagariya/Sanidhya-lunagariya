@@ -1,0 +1,57 @@
+import java.util.Scanner;
+
+public class QuizApplication {
+
+    public static void main(String[] args) {
+        // Create an array of questions
+        String[] questions = {
+            "What is the capital of France?",
+            "What is the largest planet in our solar system?",
+            "Who wrote 'Romeo and Juliet'?",
+            "What is the square root of 64?",
+            "What is the chemical symbol for water?"
+        };
+
+        // Create a 2D array of options corresponding to each question
+        String[][] options = {
+            {"A) Paris", "B) London", "C) Rome", "D) Berlin"},
+            {"A) Earth", "B) Jupiter", "C) Mars", "D) Saturn"},
+            {"A) William Shakespeare", "B) Mark Twain", "C) Charles Dickens", "D) Jane Austen"},
+            {"A) 6", "B) 7", "C) 8", "D) 9"},
+            {"A) H2O", "B) CO2", "C) O2", "D) H2"}
+        };
+
+        // Create an array of correct answers
+        char[] answers = {'A', 'B', 'A', 'C', 'A'};
+
+        // Variable to store the user's score
+        int score = 0;
+
+        // Scanner object to read user input
+        Scanner scanner = new Scanner(System.in);
+
+        // Loop through each question
+        for (int i = 0; i < questions.length; i++) {
+            // Display the question and options
+            System.out.println(questions[i]);
+            for (String option : options[i]) {
+                System.out.println(option);
+            }
+
+            // Read the user's answer
+            System.out.print("Your answer: ");
+            char userAnswer = scanner.next().toUpperCase().charAt(0);
+
+            // Check if the answer is correct and update the score
+            if (userAnswer == answers[i]) {
+                score++;
+            }
+        }
+
+        // Display the final score
+        System.out.println("Your final score is: " + score + "/" + questions.length);
+
+        // Close the scanner
+        scanner.close();
+    }
+}
